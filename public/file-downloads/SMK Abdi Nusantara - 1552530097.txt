@@ -1,0 +1,20 @@
+Konek ke database : 
+.env
+
+Migration : 
+appServiceProvider.php
+
+View Data : 
+- Setting route
+- Buat index.blade.php
+- Buat Model
+- Buat Controller
+- Tampilkan data ke index
+
+Create New Data : 
+- Setting route
+- Buat create.blade.php
+- Buat function create : Untuk menampilkan form create
+- Jangan lupa tentukan action form ny
+- buat route untuk proses penyimpanan data (store)
+- Buat function store di controller
