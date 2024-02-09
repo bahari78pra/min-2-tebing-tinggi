@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Fasilitas;
 use Session;
+use Illuminate\Support\Facades\File;
 
 class FasilitasController extends Controller
 {
@@ -98,11 +99,11 @@ class FasilitasController extends Controller
     public function update(Request $request)
     {
         $fasilitas = Fasilitas::findOrFail($request->id);
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-        // ]);
 
         if ($request->hasFile('image')) {
+            if (File::exists("images/" . $fasilitas->image)) {
+                File::delete("images/" . $fasilitas->image);
+            }
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -139,6 +140,9 @@ class FasilitasController extends Controller
     public function delete(Request $request)
     {
         $fasilitas = Fasilitas::findOrFail($request->id);
+        if (File::exists("images/" . $fasilitas->image)) {
+            File::delete("images/" . $fasilitas->image);
+        }
         $fasilitas->delete();
 
         return redirect()->back();

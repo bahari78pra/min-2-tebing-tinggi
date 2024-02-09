@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Ekstrakurikuler;
 use Session;
+use Illuminate\Support\Facades\File;
 
 class EkstrakurikulerController extends Controller
 {
@@ -98,11 +99,11 @@ class EkstrakurikulerController extends Controller
     public function update(Request $request)
     {
         $ekstrakurikuler = Ekstrakurikuler::findOrFail($request->id);
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-        // ]);
 
         if ($request->hasFile('image')) {
+            if (File::exists("images/" . $ekstrakurikuler->image)) {
+                File::delete("images/" . $ekstrakurikuler->image);
+            }
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -138,8 +139,11 @@ class EkstrakurikulerController extends Controller
      */
     public function delete(Request $request)
     {
-        $zona_integritas = ZonaIntegritas::findOrFail($request->id);
-        $zona_integritas->delete();
+        $ekstrakurikuler = Ekstrakurikuler::findOrFail($request->id);
+        if (File::exists("images/" . $ekstrakurikuler->image)) {
+            File::delete("images/" . $ekstrakurikuler->image);
+        }
+        $ekstrakurikuler->delete();
 
         return redirect()->back();
     }

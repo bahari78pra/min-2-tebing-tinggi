@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use Illuminate\Support\Facades\File;
 
 class NewsController extends Controller
 {
@@ -98,11 +99,13 @@ class NewsController extends Controller
     public function update(Request $request)
     {
         $news = News::findOrFail($request->id);
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-        // ]);
+
 
         if ($request->hasFile('image')) {
+            if (File::exists("images/" . $news->image)) {
+                File::delete("images/" . $news->image);
+            }
+
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -141,6 +144,9 @@ class NewsController extends Controller
     public function delete(Request $request)
     {
         $news = News::findOrFail($request->id);
+        if (File::exists("images/" . $news->image)) {
+            File::delete("images/" . $news->image);
+        }
         $news->delete();
 
         return redirect()->back();

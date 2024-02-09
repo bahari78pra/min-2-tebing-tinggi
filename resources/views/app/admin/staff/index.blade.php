@@ -33,7 +33,7 @@
                     <tr>
                         <th width="5%">#</th>
                         <th>Nama</th>
-                        <th>NUPTK</th>
+                        <th>NIP</th>
                         <th>Jabatan</th>
                         <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>

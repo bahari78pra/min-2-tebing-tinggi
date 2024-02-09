@@ -49,14 +49,9 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $this->validate($request, [
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg,JPG',
         ]);
-
-
-
         $image = $request->file('image');
 
         $file_name = $image->getClientOriginalName();

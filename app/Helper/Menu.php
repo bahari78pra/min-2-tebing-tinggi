@@ -36,11 +36,11 @@ class Menu
 				'class' => 'c-black-500 ti-tag',
 				'route'	=> route($user_level . '.profile')
 			],
-			[
-				'name' 	=> 'Lembaga',
-				'class' => 'c-black-500 ti-bookmark-alt',
-				'route'	=> route($user_level . '.lembaga')
-			],
+			// [
+			// 	'name' 	=> 'Lembaga',
+			// 	'class' => 'c-black-500 ti-bookmark-alt',
+			// 	'route'	=> route($user_level . '.lembaga')
+			// ],
 			// [
 			// 	'name' 	=> 'Paket Keahlian',
 			// 	'class' => 'c-black-500 ti-target',
@@ -86,11 +86,11 @@ class Menu
 				'class' => 'c-black-500 ti-direction',
 				'route'	=> route($user_level . '.fasilitas')
 			],
-			[
-				'name' 	=> 'Kurikulum',
-				'class' => 'c-black-500 ti-book',
-				'route'	=> route($user_level . '.kurikulum')
-			],
+			// [
+			// 	'name' 	=> 'Kurikulum',
+			// 	'class' => 'c-black-500 ti-book',
+			// 	'route'	=> route($user_level . '.kurikulum')
+			// ],
 			// [
 			// 	'name' 	=> 'Pendaftar',
 			// 	'class' => 'c-black-500 ti-user',
@@ -111,11 +111,11 @@ class Menu
 			// 	'class' => 'c-black-500 ti-marker',
 			// 	'route'	=> route($user_level.'.kritik_saran')
 			// ],
-			[
-				'name' 	=> 'File Manager',
-				'class' => 'c-black-500 ti-file',
-				'route'	=> route($user_level . '.file-manager')
-			],
+			// [
+			// 	'name' 	=> 'File Manager',
+			// 	'class' => 'c-black-500 ti-file',
+			// 	'route'	=> route($user_level . '.file-manager')
+			// ],
 		];
 	}
 

@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<h4 class="c-grey-900 mT-10 mB-30">Beranda</h4>
+<h4 class="c-grey-900 mT-10 mB-30">Selamat Datang di Halaman Administrator</h4>
 <div class="row">
     <div class="col-md-12">
     	{{-- <div class="row">

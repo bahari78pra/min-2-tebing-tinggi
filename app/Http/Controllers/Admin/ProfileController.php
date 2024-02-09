@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -97,13 +98,16 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        //dd($request->all());
         $profile = Profile::findOrFail($request->id);
-        // $request->validate([
-        //     'image' => 'image',
-        // ]);
+
+
 
         if ($request->hasFile('image')) {
+            //hapus file gambar sebelumnya
+            if (File::exists("images/" . $profile->image)) {
+                File::delete("images/" . $profile->image);
+            }
+
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -140,6 +144,9 @@ class ProfileController extends Controller
     public function delete(Request $request)
     {
         $profile = Profile::findOrFail($request->id);
+        if (File::exists("images/" . $profile->image)) {
+            File::delete("images/" . $profile->image);
+        }
         $profile->delete();
 
         return redirect()->back();

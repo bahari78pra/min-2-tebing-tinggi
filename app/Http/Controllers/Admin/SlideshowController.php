@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\Slideshow;
+use Illuminate\Support\Facades\File;
 
 class SlideshowController extends Controller
 {
@@ -47,10 +48,6 @@ class SlideshowController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
-        // ]);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -97,11 +94,11 @@ class SlideshowController extends Controller
     public function update(Request $request)
     {
         $slideshow = Slideshow::findOrFail($request->id);
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
-        // ]);
 
         if ($request->hasFile('image')) {
+            if (File::exists("images/" . $slideshow->image)) {
+                File::delete("images/" . $slideshow->image);
+            }
             $image = $request->file('image');
             $file_name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -137,6 +134,9 @@ class SlideshowController extends Controller
     public function delete(Request $request)
     {
         $slideshow = Slideshow::findOrFail($request->id);
+        if (File::exists("images/" . $slideshow->image)) {
+            File::delete("images/" . $slideshow->image);
+        }
         $slideshow->delete();
 
         return redirect()->back();

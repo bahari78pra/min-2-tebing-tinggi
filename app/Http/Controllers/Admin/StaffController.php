@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
+use Illuminate\Support\Facades\File;
 
 class StaffController extends Controller
 {
@@ -17,7 +18,7 @@ class StaffController extends Controller
     public function index(Request $request)
     {
         $keywords = $request->q;
-        $staff = Staff::orderBy('nama', 'asc');
+        $staff = Staff::orderBy('no_urut_tampil', 'asc');
         if (!empty($keywords)) {
             $staff->where('nama', 'LIKE', '%' . $keywords . '%');
         }
@@ -101,11 +102,11 @@ class StaffController extends Controller
     public function update(Request $request)
     {
         $staff = Staff::findOrFail($request->id);
-        // $this->validate($request, [
-        // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
-        // ]);
 
         if ($request->hasFile('image')) {
+            if (File::exists("images/" . $staff->image)) {
+                File::delete("images/" . $staff->image);
+            }
             $image = $request->file('image');
             $name = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = 'images';
@@ -150,6 +151,9 @@ class StaffController extends Controller
     public function delete(Request $request)
     {
         $staff = Staff::findOrFail($request->id);
+        if (File::exists("images/" . $staff->image)) {
+            File::delete("images/" . $staff->image);
+        }
         $staff->delete();
 
         return redirect()->back();

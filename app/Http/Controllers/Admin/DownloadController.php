@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\Download;
+use Illuminate\Support\Facades\File;
 
 class DownloadController extends Controller
 {
@@ -16,17 +17,17 @@ class DownloadController extends Controller
      */
     public function index(Request $request)
     {
-        $keywords=$request->q;
-        $downloads = Download::orderBy('judul','asc');
-        if (!empty($keywords)){
-            $downloads->where('judul','LIKE','%'.$keywords.'%');
+        $keywords = $request->q;
+        $downloads = Download::orderBy('judul', 'asc');
+        if (!empty($keywords)) {
+            $downloads->where('judul', 'LIKE', '%' . $keywords . '%');
         }
-        $downloads=$downloads->paginate(10);
-        $skipped = $downloads->currentPage() *$downloads->perPage() -$downloads->perPage();
+        $downloads = $downloads->paginate(10);
+        $skipped = $downloads->currentPage() * $downloads->perPage() - $downloads->perPage();
         return view('app.admin.download.index')
-                    ->with('keywords',$keywords)
-                    ->with('skipped',$skipped)
-                    ->with('downloads', $downloads);
+            ->with('keywords', $keywords)
+            ->with('skipped', $skipped)
+            ->with('downloads', $downloads);
     }
 
     /**
@@ -53,9 +54,8 @@ class DownloadController extends Controller
             $name = $file->getClientOriginalName();
             $destinationPath = 'file-downloads';
             $file->move($destinationPath, $name);
-        }
-        else{
-            $name ='';
+        } else {
+            $name = '';
         }
 
         Download::create([
@@ -64,10 +64,9 @@ class DownloadController extends Controller
         ]);
 
         //session flash for message
-        Session::flash('flash_message','successfully saved.');
+        Session::flash('flash_message', 'successfully saved.');
 
         return redirect()->route('admin.download');
-
     }
 
 
@@ -79,8 +78,8 @@ class DownloadController extends Controller
      */
     public function edit(Download $download)
     {
-        return view('app.admin.download.edit')   
-                    ->with('download', $download); 
+        return view('app.admin.download.edit')
+            ->with('download', $download);
     }
 
     /**
@@ -97,6 +96,9 @@ class DownloadController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
+            if (File::exists("file-downloads/" . $download->file)) {
+                File::delete("file-downloads/" . $download->file);
+            }
             $destinationPath = 'file-downloads';
             $file->move($destinationPath, $name);
 
@@ -104,16 +106,14 @@ class DownloadController extends Controller
                 'judul' => $request->title,
                 'file' => $name
             ]);
-        
-        }
-        else{
+        } else {
             $download->update([
                 'judul' => $request->title,
             ]);
         }
 
         //session flash for message
-        Session::flash('flash_message','successfully saved.');
+        Session::flash('flash_message', 'successfully saved.');
 
         return redirect()->route('admin.download');
     }
@@ -127,8 +127,11 @@ class DownloadController extends Controller
     public function delete(Request $request)
     {
         $download = Download::findOrFail($request->id);
+        if (File::exists("file-downloads/" . $download->file)) {
+            File::delete("file-downloads/" . $download->file);
+        }
         $download->delete();
-    
+
         return redirect()->back();
     }
 }
