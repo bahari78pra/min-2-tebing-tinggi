@@ -6,3 +6,36 @@
 .inner-page .content {
     font-size: 14px !important;
 }
+
+.fixed-bg {
+    position: relative;
+    background-image: url('../../imgs/fix-bg.jpg');
+    /* Ganti 'your-image.jpg' dengan path ke gambar latar belakang Anda */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    /* Sesuaikan ketinggian dengan kebutuhan Anda */
+    /* Warna teks untuk konten */
+    text-align: center;
+    padding-top: 20px;
+    /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.fixed-bg::before {
+    content: "";
+    background-color: rgba(2, 101, 23, 0.5);
+    /* Ubah warna overlay sesuai kebutuhan Anda */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.fixed-bg .content {
+    position: relative;
+    z-index: 1;
+    /* Pastikan konten berada di atas lapisan overlay */
+    padding: 20px;
+}

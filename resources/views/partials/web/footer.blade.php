@@ -5,8 +5,7 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-info">
-                        <b>Yayasan Pendidikan</b>
-                        <h3>Islamiyah Dolok Masihul</h3>
+                        <h3>MIN 2 Tebing Tinggi</h3>
 
                         <p>
                             {{ $instansi->address }}<br><br>
@@ -36,20 +35,21 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-links">
                     <h4>Link Terkait</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">KANWIL KEMENAG Kab.Serdang Bedagai</a>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">KANWIL KEMENAG Kota Tebing Tinggi</a>
                         </li>
                         <li><i class="bx bx-chevron-right"></i> <a href="#">KANWIL KEMENAG Prov.Sumatera Utara</a>
                         </li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Dinas Pendidikan Kab.Serdang Bedagai</a>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Dinas Pendidikan Kota Tebing
+                                Tinggi</a>
                         </li>
                     </ul>
                 </div>
 
 
                 <div class="col-lg-2 col-md-6 footer-newsletter">
-                    <img src="{{ asset('images/logo-islamiyah.png') }}" alt="logo-islamiyah" width="150"
+                    <img src="{{ asset('imgs/logo-kemenag.png') }}" alt="logo-kemenag" width="150"
                         class="d-block mx-auto">
-                    <p align="center">Yayasan Pendidikan Islamiyah Dolok Masihul</p>
+                    <p align="center">MIN 2 Tebing Tinggi</p>
 
                 </div>
 
@@ -59,15 +59,11 @@
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong><span>Yayasan Pendidikan Islamiyah Dolok Masihul</span></strong>. All Rights
+            &copy; Copyright <strong><span>MIN 2 Tebing Tinggi</span></strong>. All Rights
             Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/groovin-free-bootstrap-theme/ -->
-            Designed by <a href="#">BpMediaSolusindo</a>
+            {{-- Designed by <a href="#">BpMediaSolusindo</a> --}}
         </div>
     </div>
 </footer>

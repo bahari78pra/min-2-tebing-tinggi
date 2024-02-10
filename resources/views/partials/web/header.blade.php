@@ -1,9 +1,8 @@
  <header id="header" class="fixed-top">
      <div class="container d-flex align-items-center">
-         <img src="{{ asset('images/logo-islamiyah.png') }}" width="50" alt="logo islamiyah dolok masihul">
+         <img src="{{ asset('imgs/logo-kemenag.png') }}" width="50" alt="logo kemenag">
          <h1 class="logo mr-auto"><a href="{{ route('index') }}">
-                 Yayasan Pendidikan <br />
-                 Islamiyah Dolok Masihul
+                 MIN 2 Tebing Tinggi
              </a>
          </h1>
          <!-- Uncomment below if you prefer to use an image logo -->
@@ -19,14 +18,6 @@
                              </li>
                          @endforeach
                          <li><a href="{{ route('staff_pengajar') }}">Tenaga Pendidik / Kependidikan</a></li>
-                     </ul>
-                 </li>
-                 <li class="drop-down"><a href="">Lembaga</a>
-                     <ul>
-                        @foreach ($lembaga as $data_lembaga)
-                        <li><a href="{{ route('lembaga', $data_lembaga->alias) }}">{{ $data_lembaga->judul }}</a>
-                        </li>
-                    @endforeach
                      </ul>
                  </li>
                  <li class="drop-down"><a href="">Fasilitas</a>
@@ -55,7 +46,7 @@
                          {{-- <li><a href="{{ route('galeri_video') }}">Galeri Video</a></li> --}}
                      </ul>
                  </li>
-                 <li><a href="{{ route('pendaftaran') }}">Pendaftaran</a></li>
+                 {{-- <li><a href="{{ route('pendaftaran') }}">Pendaftaran</a></li> --}}
              </ul>
          </nav><!-- .nav-menu -->
 

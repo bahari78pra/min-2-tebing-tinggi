@@ -3,6 +3,9 @@
 
 <head>
     @include('partials.web.head_ref')
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -14,7 +17,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container">
-            <div id="slide-islamiyah" class="carousel slide carousel-fade" data-ride="carousel">
+            <div id="slide-min2" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
                 <div class="carousel-inner" role="listbox">
                     <!-- Slide 1 -->
@@ -22,15 +25,16 @@
                         $no_slide = 1;
                     @endphp
                     @foreach ($slides as $data_slide)
-                        <div @if ($no_slide == 1) class="carousel-item active" @else class="carousel-item" @endif style="background: url({{ asset('images/' . $data_slide->image) }})">
+                        <div @if ($no_slide == 1) class="carousel-item active" @else class="carousel-item" @endif
+                            style="background: url({{ asset('images/' . $data_slide->image) }})">
                             <div class="carousel-container">
                                 <div class="carousel-content">
                                     <h2 class="animate__animated animate__fadeInDown">{{ $data_slide->title }}</h2>
                                     <p class="animate__animated animate__fadeInUp">{!! $data_slide->detail !!}</p>
                                     <div>
                                         <a href="#about"
-                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Sejarah
-                                            Singkat</a>
+                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Visi &
+                                            Misi Sekolah </a>
                                     </div>
                                 </div>
                             </div>
@@ -41,12 +45,12 @@
                     @endforeach
                 </div>
 
-                <a class="carousel-control-prev" href="#slide-islamiyah" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#slide-min2" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
 
-                <a class="carousel-control-next" href="#slide-islamiyah" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#slide-min2" role="button" data-slide="next">
                     <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -56,80 +60,37 @@
     </section><!-- End Hero -->
 
     <main id="main">
-
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container">
 
-                <div class="row no-gutters">
-                    <div class="col-lg-6 col-md-6 col-sm-12 content">
-                        <h3>Sejarah Singkat</h3>
-                        {!! str_replace(['<div>', '</div>'], '', $sejarah->profile_detail) !!}
-                        <a href="{{ route('profil', $sejarah->alias) }}">Baca Selengkapnya</a>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 content">
-                        <h3>Lokasi</h3>
-                        <p>{{ $instansi->address }}</p>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 text-center content">
-                        <img src="{{ asset('images/logo-islamiyah.png') }}" alt="logo islamiyah dolok masihul"
-                            width="100" class="d-block m-auto">
-                        <p>Yayasan Pendidikan Islamiyah <br />Dolok Masihul</p>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End About Section -->
-
-        <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                        <div class="count-box">
-                            <i class="icofont-users-alt-5"></i>
-                            <span data-toggle="counter-up">{{ $instansi->jlh_siswa }}</span>
-                            <p><strong>Siswa Aktif</strong><br>Tahun Ini</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                        <div class="count-box">
-                            <i class="icofont-user-suited"></i>
-                            <span data-toggle="counter-up">{{ $instansi->jlh_guru }}</span>
-                            <p><strong>Guru</strong><br>Profesional</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                        <div class="count-box">
-                            <i class="icofont-badge"></i>
-                            <span data-toggle="counter-up">{{ $instansi->jlh_prestasi }}</span>
-                            <p><strong>Prestasi Siswa</strong><br> Tahun Ini</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                        <div class="count-box">
-                            <i class="icofont-building"></i>
-                            <span data-toggle="counter-up">{{ $instansi->jlh_fasilitas }}</span>
-                            <p><strong>Fasilitas</strong> <br> Pembelajaran</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Counts Section -->
-
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients section-bg">
-            <div class="container">
                 <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left">
+                        <h3 style="text-transform: uppercase">Profil</h3>
+                        <h2 style="text-transform: uppercase">Madrasah Ibtidaiyah Negeri 2</h2>
+                        <h2 style="text-transform: uppercase">Tebing tinggi</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi asperiores, quia
+                            est molestias eligendi eaque at, dignissimos quis ipsa beatae et adipisci quibusdam. Ab
+                            aliquid id corrupti fuga praesentium!</p>
+                        {{-- {!! str_replace(['<div>', '</div>'], '', $sambutan->profile_detail) !!}
+                        <a href="{{ route('profil', $sambutan->alias) }}">Baca Selengkapnya</a> --}}
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right">
+                        {{-- <img src="{{ asset('images/' . $sambutan->gambar) }}" class="img-fluid"
+                            alt="foto kepsek min 2 tebing tinggi"> --}}
+                        <iframe width="100%" height="315"
+                            src="https://www.youtube.com/embed/uE7ZNs3u1jg?si=Y8jgNWjyrEsQJ7mC"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+
+
                 </div>
 
             </div>
-        </section><!-- End Clients Section -->
+        </section>
+        <!-- End About Section -->
 
         <!-- ======= Berita Terkini Section ======= -->
         <section id="services" class="services">
@@ -142,7 +103,7 @@
 
                 <div class="row">
                     @foreach ($berita as $data_berita)
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up">
                             <a href="{{ route('berita.detail', $data_berita->alias) }}"><img
                                     src="{{ asset('images/' . $data_berita->image) }}" class="img-fluid"
                                     alt="Yayasa Pendidikan Islamiyah Domas - {{ $data_berita->judul }}"></a>
@@ -155,6 +116,33 @@
 
             </div>
         </section><!-- End Berita Terkini Section -->
+
+        <!-- ======= Fasilitas Section ======= -->
+        <section id="services" class="services fixed-bg">
+            <div class="container content">
+                <div class="section-title">
+                    <h2 style="color: white">Fasilitas Sekolah</h2>
+                </div>
+                <div class="row">
+                    @foreach ($fasilitas as $data_fasilitas)
+                        <div class="col-lg-4 col-md-6 mt-3" data-aos="fade-up">
+                            <div class="card" style="width: 100%;">
+                                <img src="{{ asset('images/' . $data_fasilitas->gambar) }}"
+                                    class="card-img-top img-fluid rounded" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $data_fasilitas->judul }}</h5>
+                                    <a href="{{ route('fasilitas', $data_fasilitas->alias) }}" class="btn btn-success"
+                                        style="background: #006316 !important">Lihat
+                                        Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section><!-- End Fasilitas Section -->
+
+
 
         <!-- ======= Galeri Foto Section ======= -->
         <section id="portfolio" class="portfolio">
@@ -177,7 +165,8 @@
 
                 <div class="row portfolio-container">
                     @foreach ($galeri as $data_galeri)
-                        <div @if ($data_galeri->jenis == 'kegiatan_sekolah') class="col-lg-4 col-md-6 portfolio-item filter-app" @elseif($data_galeri->jenis=="prestasi") class="col-lg-4 col-md-6 portfolio-item filter-card" @elseif($data_galeri->jenis=="kesiswaan") class="col-lg-4 col-md-6 portfolio-item filter-web" @endif>
+                        <div
+                            @if ($data_galeri->jenis == 'kegiatan_sekolah') class="col-lg-4 col-md-6 portfolio-item filter-app" @elseif($data_galeri->jenis == 'prestasi') class="col-lg-4 col-md-6 portfolio-item filter-card" @elseif($data_galeri->jenis == 'kesiswaan') class="col-lg-4 col-md-6 portfolio-item filter-web" @endif>
                             <div class="portfolio-wrap">
                                 <a href="{{ asset('images/' . $data_galeri->image) }}" data-gall="portfolioGallery"
                                     class="venobox" title="{{ $data_galeri->title }}">
@@ -195,30 +184,38 @@
             </div>
         </section><!-- End Galeri Foto Section -->
 
-        <!-- ======= Prestasi Section ======= -->
-        <section id="services" class="services">
+
+        {{-- <section id="team" class="team">
             <div class="container">
+
                 <div class="section-title">
-                    <h2>Prestasi Sekolah</h2>
-                    {{-- <p>Kami informasikan berbagai berita dan kegiatan tentang Yayasa Pendidikan Islamiyah Dolok Masihul.
-                        Semoga Memberikan informasi yang jelas bagi anda</p> --}}
+                    <h2>Tenaga Pendidik</h2>
                 </div>
 
                 <div class="row">
-                    @foreach ($prestasi as $data_prestasi)
-                        <div class="col-lg-4 col-md-6">
-                            <a href="{{ route('prestasi') }}"><img
-                                    src="{{ asset('images/' . $data_prestasi->image) }}" class="img-fluid"
-                                    alt=""></a>
-                            <h4 class="title"><a href="{{ route('prestasi') }}">{{ $data_prestasi->title }}</a>
-                            </h4>
+                    @foreach ($staff as $data_staff)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="member">
+                                @if ($data_staff->image == '')
+                                    <img src="{{ asset('images/icon-ptk.png') }}" class="img-fluid" alt="">
+                                @else
+                                    <img src="{{ asset('images/' . $data_staff->image) }}" class="img-fluid"
+                                        alt="">
+                                @endif
+
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>{{ $data_staff->nama }}</h4>
+                                        <span>{{ $data_staff->jabatan }}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
 
             </div>
-        </section><!-- End Prestasi Terkini Section -->
-
+        </section> --}}
 
 
         <!-- ======= Contact Section ======= -->
@@ -260,29 +257,10 @@
 
                 <div class="form">
                     <div class="mapouter">
-                        <div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=MTS%20Islamiyah,%20Jalan%20Perjuangan%20Gg.%20Benteng%20Link%20I,%20Pekan%20Dolok%20Masihul,%20Dolok%20Masihul,%20Serdang%20Bedagai%20Regency,%20North%20Sumatra&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
-                                href="https://fmovies2.org">fmovies</a><br>
-                            <style>
-                                .mapouter {
-                                    position: relative;
-                                    text-align: right;
-                                    height: 400px;
-                                    width: 100%;
-                                }
-
-                            </style><a href="https://www.embedgooglemap.net">how to add map to website</a>
-                            <style>
-                                .gmap_canvas {
-                                    overflow: hidden;
-                                    background: none !important;
-                                    height: 400px;
-                                    width: 100%;
-                                }
-
-                            </style>
-                        </div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.016158991976!2d99.13606207371627!3d3.346156551912635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031612a5f1fd0eb%3A0xe604a56b9110d406!2sMIN%202%20TEBING%20TINGGI!5e0!3m2!1sen!2sid!4v1707580663154!5m2!1sen!2sid"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -309,9 +287,13 @@
     <script src="{{ asset('asset_frontend/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="{{ asset('asset_frontend/js/main.js') }}">
-    </script>
+    <script src="{{ asset('asset_frontend/js/main.js') }}"></script>
 
+    {{-- AOS --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

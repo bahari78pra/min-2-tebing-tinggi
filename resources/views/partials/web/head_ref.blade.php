@@ -1,17 +1,18 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Yayasan Pendidikan Islamiyah - Dolok Masihul</title>
+<title>MIN 2 Tebing Tinggi</title>
 <meta
-    content="Yayasan Pendidikan Islamiyah Dolok Masihul merupakan salah satu yayasan pendidikan yang memiliki 2 tingkatan yaitu Madrasah Tsanawiyah(SMP) dan Madrasah Aliyah(SMA). Selalu mengutamakan kualitas di bidang pendidikan membuat Yayasan Pendidikan Islamiyah sering meraih prestasi baik di tingkat kecamatan maupun kabupaten."
+    content="Madrasah Ibtida'iyah Negeri (MIN)2 Tebing Tinggi berlokasi di Jl. Setia Budi Lk. IV Kel. Berohol, Kota Tebing Tinggi. Madrasah yang mengedepankan pendidikan agama dan budi pekerti serta keilmuaan yang dibutuhkan para peserta didik guna dapat menjadikan bekal bagi para siswa untuk pendidikan di tingkat selanjutnya.
+    "
     name="description">
 <meta
-    content="Islamiyah Dolok Masihul, MTs Islamiyah dolok masihul, MA Islamiyah dolok masihul, Madrasah dolok masihul, Aliyah Dolok Masihul, Madrasah agama dolok masihul"
+    content="MIN Tebing Tinggi, MIN 2 tebing tinggi, madrasah tebing tinggi, madrasah negeri tebing tinggi, min 2 tebing tinggi, min 2 tebing, madrasah di berohol tebing tinggi, madrasah negeri di tebing tinggi"
     name="keywords">
 
 <!-- Favicons -->
-<link href="{{ asset('images/logo-islamiyah.png') }}" rel="icon">
-<link href="{{ asset('images/logo-islamiyah.png') }}" rel="apple-touch-icon">
+<link href="{{ asset('imgs/logo-kemenag.png') }}" rel="icon">
+<link href="{{ asset('imgs/logo-kemenag.png') }}" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link
@@ -29,3 +30,6 @@
 <!-- Template Main CSS File -->
 <link href="{{ asset('asset_frontend/css/style.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/web/custom.css') }}">
+
+{{-- AOS --}}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
