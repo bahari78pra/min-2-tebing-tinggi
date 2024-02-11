@@ -40,13 +40,21 @@
                  </li>
                  <li class="drop-down"><a href="">Publikasi</a>
                      <ul>
-                         <li><a href="{{ route('prestasi') }}">Prestasi</a></li>
                          <li><a href="{{ route('berita') }}">Berita</a></li>
-                         <li><a href="{{ route('galeri_foto') }}">Galeri Foto</a></li>
+                         <li><a href="{{ route('galeri_foto') }}">Galeri</a></li>
                          {{-- <li><a href="{{ route('galeri_video') }}">Galeri Video</a></li> --}}
                      </ul>
                  </li>
-                 {{-- <li><a href="{{ route('pendaftaran') }}">Pendaftaran</a></li> --}}
+                 <li class="drop-down"><a href="">Portal</a>
+                     <ul>
+                         @foreach ($portal as $data_portal)
+                             <li><a href="{{ $data_portal->url }}"
+                                     target="_blank">{{ $data_ekstrakurikuler->judul }}</a>
+                             </li>
+                         @endforeach
+                     </ul>
+                 </li>
+                 <li><a href="{{ route('download') }}">Download</a></li>
              </ul>
          </nav><!-- .nav-menu -->
 

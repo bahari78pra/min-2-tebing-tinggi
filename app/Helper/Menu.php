@@ -86,6 +86,11 @@ class Menu
 				'class' => 'c-black-500 ti-direction',
 				'route'	=> route($user_level . '.fasilitas')
 			],
+			[
+				'name' 	=> 'Portal',
+				'class' => 'c-black-500 ti-link',
+				'route'	=> route($user_level . '.portal')
+			],
 			// [
 			// 	'name' 	=> 'Kurikulum',
 			// 	'class' => 'c-black-500 ti-book',

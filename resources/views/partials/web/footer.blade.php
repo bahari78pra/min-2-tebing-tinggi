@@ -35,13 +35,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-links">
                     <h4>Link Terkait</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">KANWIL KEMENAG Kota Tebing Tinggi</a>
-                        </li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">KANWIL KEMENAG Prov.Sumatera Utara</a>
-                        </li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Dinas Pendidikan Kota Tebing
-                                Tinggi</a>
-                        </li>
+                        @foreach ($portal as $data_portal)
+                            <li><i class="bx bx-chevron-right"></i> <a
+                                    href="{{ $data_portal->url }}">{{ $data_portal->judul }}</a>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </div>
 

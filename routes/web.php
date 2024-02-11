@@ -8,15 +8,13 @@ Route::namespace('Web')->group(function () {
 	Route::get('/lembaga/{lembaga}', 'LembagaController@index')->name('lembaga');
 	Route::get('/berita', 'BeritaController@index')->name('berita');
 	Route::get('/berita/{berita}', 'BeritaController@detail')->name('berita.detail');
-	Route::get('/prestasi', 'PrestasiController@index')->name('prestasi');
-	Route::get('/prestasi/{prestasi}', 'PrestasiController@detail')->name('prestasi.detail');
 	Route::get('/fasilitas/{fasilitas}', 'FasilitasController@index')->name('fasilitas');
 	Route::get('/ekstrakurikuler/{ekstrakurikuler}', 'EkstrakurikulerController@index')->name('ekstrakurikuler');
 	Route::get('/galeri-foto', 'GaleriFotoController@index')->name('galeri_foto');
-	Route::get('/galeri-video', 'GaleriVideoController@index')->name('galeri_video');
 	Route::get('/staff-pengajar', 'StaffPengajarController@index')->name('staff_pengajar');
 	Route::get('/staff-pengajar/{staff_pengajar}/detail', 'StaffPengajarController@detail')->name('staff_pengajar.detail');
 	Route::get('/pendaftaran', 'PendaftaranController@index')->name('pendaftaran');
+	Route::get('/download', 'DownloadController@index')->name('download');
 	Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap');
 });
 
@@ -53,15 +51,6 @@ Route::middleware('auth')->group(function () {
 			Route::delete('', 'ProfileController@delete')->name('.delete');
 		});
 
-		Route::prefix('kurikulum')->name('kurikulum')->group(function () {
-			Route::get('', 'KurikulumController@index')->name('');
-			Route::post('', 'KurikulumController@store')->name('.insert');
-			Route::get('create', 'KurikulumController@create')->name('.create');
-			Route::get('{kurikulum}/edit', 'KurikulumController@edit')->name('.edit');
-			Route::put('', 'KurikulumController@update')->name('.update');
-			Route::delete('', 'KurikulumController@delete')->name('.delete');
-		});
-
 		Route::prefix('fasilitas')->name('fasilitas')->group(function () {
 			Route::get('', 'FasilitasController@index')->name('');
 			Route::post('', 'FasilitasController@store')->name('.insert');
@@ -69,15 +58,6 @@ Route::middleware('auth')->group(function () {
 			Route::get('{fasilitas}/edit', 'FasilitasController@edit')->name('.edit');
 			Route::put('', 'FasilitasController@update')->name('.update');
 			Route::delete('', 'FasilitasController@delete')->name('.delete');
-		});
-
-		Route::prefix('lembaga')->name('lembaga')->group(function () {
-			Route::get('', 'LembagaController@index')->name('');
-			Route::post('', 'LembagaController@store')->name('.insert');
-			Route::get('create', 'LembagaController@create')->name('.create');
-			Route::get('{lembaga}/edit', 'LembagaController@edit')->name('.edit');
-			Route::put('', 'LembagaController@update')->name('.update');
-			Route::delete('', 'LembagaController@delete')->name('.delete');
 		});
 
 		Route::prefix('ekstrakurikuler')->name('ekstrakurikuler')->group(function () {
@@ -106,15 +86,6 @@ Route::middleware('auth')->group(function () {
 			Route::get('download/{file}', 'GalleryController@download')->name('.download');
 		});
 
-		Route::prefix('video')->name('video')->group(function () {
-			Route::get('', 'VideoController@index')->name('');
-			Route::post('', 'VideoController@store')->name('.insert');
-			Route::get('create', 'VideoController@create')->name('.create');
-			Route::get('{video}/edit', 'VideoController@edit')->name('.edit');
-			Route::put('', 'VideoController@update')->name('.update');
-			Route::delete('', 'VideoController@delete')->name('.delete');
-		});
-
 		Route::prefix('news')->name('news')->group(function () {
 			Route::get('', 'NewsController@index')->name('');
 			Route::post('', 'NewsController@store')->name('.insert');
@@ -122,14 +93,6 @@ Route::middleware('auth')->group(function () {
 			Route::get('{news}/edit', 'NewsController@edit')->name('.edit');
 			Route::put('', 'NewsController@update')->name('.update');
 			Route::delete('', 'NewsController@delete')->name('.delete');
-		});
-
-		Route::prefix('file-manager')->name('file-manager')->group(function () {
-			Route::get('', 'FileManagerController@index')->name('');
-			Route::post('', 'FileManagerController@store')->name('.insert');
-			Route::get('create', 'FileManagerController@create')->name('.create');
-			Route::delete('', 'FileManagerController@delete')->name('.delete');
-			Route::get('download/{file}', 'FileManagerController@download')->name('.download');
 		});
 
 		Route::prefix('slideshow')->name('slideshow')->group(function () {
@@ -150,22 +113,13 @@ Route::middleware('auth')->group(function () {
 			Route::delete('', 'DownloadController@delete')->name('.delete');
 		});
 
-		Route::prefix('pengaduan')->name('pengaduan')->group(function () {
-			Route::get('', 'PengaduanController@index')->name('');
-			Route::post('', 'PengaduanController@store')->name('.insert');
-			Route::get('create', 'PengaduanController@create')->name('.create');
-			Route::get('{pengaduan}/edit', 'PengaduanController@edit')->name('.edit');
-			Route::put('', 'PengaduanController@update')->name('.update');
-			Route::delete('', 'PengaduanController@delete')->name('.delete');
-		});
-
-		Route::prefix('kritik_saran')->name('kritik_saran')->group(function () {
-			Route::get('', 'KritikSaranController@index')->name('');
-			Route::post('', 'KritikSaranController@store')->name('.insert');
-			Route::get('create', 'KritikSaranController@create')->name('.create');
-			Route::get('{kritik_saran}/edit', 'KritikSaranController@edit')->name('.edit');
-			Route::put('', 'KritikSaranController@update')->name('.update');
-			Route::delete('', 'KritikSaranController@delete')->name('.delete');
+		Route::prefix('portal')->name('portal')->group(function () {
+			Route::get('', 'PortalController@index')->name('');
+			Route::post('', 'PortalController@store')->name('.insert');
+			Route::get('create', 'PortalController@create')->name('.create');
+			Route::get('{portal}/edit', 'PortalController@edit')->name('.edit');
+			Route::put('', 'PortalController@update')->name('.update');
+			Route::delete('', 'PortalController@delete')->name('.delete');
 		});
 
 		Route::prefix('pendaftar')->name('pendaftar')->group(function () {

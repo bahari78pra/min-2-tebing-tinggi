@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{Office, Profile, Gallery, News,  Slideshow, Fasilitas, Ekstrakurikuler, Staff};
+use App\Models\{Office, Profile, Gallery, News,  Slideshow, Fasilitas, Ekstrakurikuler, Staff, Portal};
 
 class HomepageController extends Controller
 {
@@ -12,6 +12,7 @@ class HomepageController extends Controller
     {
         $instansi = Office::first();
         $profil = Profile::orderby('id')->get();
+        $portal = Portal::orderby('id')->get();
         $sejarah = Profile::where('id', 2)->first();
         $fasilitas = Fasilitas::orderby('id')->get();
         $ekstrakurikuler = Ekstrakurikuler::orderby('id')->get();
@@ -31,6 +32,7 @@ class HomepageController extends Controller
             ->with('prestasi', $prestasi)
             ->with('slides', $slides)
             ->with('profil', $profil)
+            ->with('portal', $portal)
             ->with('fasilitas', $fasilitas)
             ->with('ekstrakurikuler', $ekstrakurikuler)
             ->with('sambutan', $sambutan);

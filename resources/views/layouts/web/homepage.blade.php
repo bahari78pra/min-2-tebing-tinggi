@@ -26,7 +26,7 @@
                     @endphp
                     @foreach ($slides as $data_slide)
                         <div @if ($no_slide == 1) class="carousel-item active" @else class="carousel-item" @endif
-                            style="background: url({{ asset('images/' . $data_slide->image) }})">
+                            style="background: url({{ asset('images/' . $data_slide->image) }}); background-repeat:no-repeat;background-size:cover;">
                             <div class="carousel-container">
                                 <div class="carousel-content">
                                     <h2 class="animate__animated animate__fadeInDown">{{ $data_slide->title }}</h2>
@@ -34,7 +34,7 @@
                                     <div>
                                         <a href="#about"
                                             class="btn-get-started animate__animated animate__fadeInUp scrollto">Visi &
-                                            Misi Sekolah </a>
+                                            Misi Madrasah </a>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
         <section id="services" class="services fixed-bg">
             <div class="container content">
                 <div class="section-title">
-                    <h2 style="color: white">Fasilitas Sekolah</h2>
+                    <h2 style="color: white">Fasilitas Madrasah</h2>
                 </div>
                 <div class="row">
                     @foreach ($fasilitas as $data_fasilitas)
@@ -167,7 +167,7 @@
                     @foreach ($galeri as $data_galeri)
                         <div
                             @if ($data_galeri->jenis == 'kegiatan_sekolah') class="col-lg-4 col-md-6 portfolio-item filter-app" @elseif($data_galeri->jenis == 'prestasi') class="col-lg-4 col-md-6 portfolio-item filter-card" @elseif($data_galeri->jenis == 'kesiswaan') class="col-lg-4 col-md-6 portfolio-item filter-web" @endif>
-                            <div class="portfolio-wrap">
+                            <div class="portfolio-wrap" data-aos="fade-up">
                                 <a href="{{ asset('images/' . $data_galeri->image) }}" data-gall="portfolioGallery"
                                     class="venobox" title="{{ $data_galeri->title }}">
                                     <img src="{{ asset('images/' . $data_galeri->image) }}" class="img-fluid"
