@@ -25,7 +25,8 @@
                     <h4>Berita Terkini</h4>
                     <ul>
                         @foreach ($berita as $data_berita)
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">{{ $data_berita->title }}</a>
+                            <li><i class="bx bx-chevron-right"></i> <a
+                                    href="{{ route('berita.detail', $data_berita->alias) }}">{{ $data_berita->title }}</a>
                             </li>
                         @endforeach
 

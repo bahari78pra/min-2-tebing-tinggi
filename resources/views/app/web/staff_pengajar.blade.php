@@ -10,8 +10,7 @@
                     @if ($data_staff->image == '')
                         <img src="{{ asset('images/icon-ptk.png') }}" alt="{{ $data_staff->nama }}" class="img-fluid">
                     @else
-                        <img src="{{ asset('images/' . $data_staff->image) }}" alt="{{ $data_staff->nama }}"
-                            class="img-fluid">
+                        <img src="{{ asset('images/' . $data_staff->image) }}" alt="{{ $data_staff->nama }}" class="img-fluid">
                     @endif
 
                     <div style="display:block;text-align:center">

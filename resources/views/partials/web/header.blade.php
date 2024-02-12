@@ -48,8 +48,7 @@
                  <li class="drop-down"><a href="">Portal</a>
                      <ul>
                          @foreach ($portal as $data_portal)
-                             <li><a href="{{ $data_portal->url }}"
-                                     target="_blank">{{ $data_ekstrakurikuler->judul }}</a>
+                             <li><a href="{{ $data_portal->url }}" target="_blank">{{ $data_portal->judul }}</a>
                              </li>
                          @endforeach
                      </ul>

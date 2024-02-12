@@ -17,11 +17,11 @@
                     <img src="{{ asset('images/' . $profil_detail->gambar) }}" alt="{{ $profil_detail->judul }}"
                         class="img-fluid">
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 content">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     {!! $profil_detail->detail !!}
                 </div>
             @else
-                <div class="col-lg-12 col-md-12 col-sm-12 content">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     {!! $profil_detail->detail !!}
                 </div>
             @endif

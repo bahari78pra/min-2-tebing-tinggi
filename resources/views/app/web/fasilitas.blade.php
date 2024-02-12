@@ -1,5 +1,5 @@
 @extends('layouts.web.page_detail')
-@section('kategori', 'Fasilitas Sekolah')
+@section('kategori', 'Fasilitas Madrasah')
 @section('breadcrumb', $fasilitas_detail->judul)
 
 @section('content')
@@ -11,20 +11,19 @@
                     {{ date('d-m-Y', strtotime($fasilitas_detail->created_at)) }}</i>
             </div>
         </div>
-        <div class="row">
-            @if ($fasilitas_detail->gambar != null)
-                <div class="col-lg-6 col-md-6 col-sm-12 mt-10">
-                    <img src="{{ asset('images/' . $fasilitas_detail->gambar) }}" alt="{{ $fasilitas_detail->judul }}"
-                        class="img-fluid">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 content">
+        <div class="row content">
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                @if ($fasilitas_detail->gambar != null)
+                    <center>
+                        <img src="{{ asset('images/' . $fasilitas_detail->gambar) }}" alt="{{ $fasilitas_detail->judul }}"
+                            class="img-fluid img-thumbnail mb-3">
+                    </center>
+                @endif
+                <p>
                     {!! $fasilitas_detail->detail !!}
-                </div>
-            @else
-                <div class="col-lg-12 col-md-12 col-sm-12 content">
-                    {!! $fasilitas_detail->detail !!}
-                </div>
-            @endif
+                </p>
+            </div>
+
         </div>
     </div>
 

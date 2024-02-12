@@ -11,20 +11,18 @@
                     {{ date('d-m-Y', strtotime($ekskul_detail->created_at)) }}</i>
             </div>
         </div>
-        <div class="row">
-            @if ($ekskul_detail->gambar != null)
-                <div class="col-lg-6 col-md-6 col-sm-12 mt-10">
-                    <img src="{{ asset('images/' . $ekskul_detail->gambar) }}" alt="{{ $ekskul_detail->judul }}"
-                        class="img-fluid">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 content">
+        <div class="row content">
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-10">
+                @if ($ekskul_detail->gambar != null)
+                    <center>
+                        <img src="{{ asset('images/' . $ekskul_detail->gambar) }}" alt="{{ $ekskul_detail->judul }}"
+                            class="img-fluid img-thumbnail mb-3">
+                    </center>
+                @endif
+                <p>
                     {!! $ekskul_detail->detail !!}
-                </div>
-            @else
-                <div class="col-lg-12 col-md-12 col-sm-12 content">
-                    {!! $ekskul_detail->detail !!}
-                </div>
-            @endif
+                </p>
+            </div>
         </div>
     </div>
 

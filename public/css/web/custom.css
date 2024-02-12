@@ -39,3 +39,7 @@
     /* Pastikan konten berada di atas lapisan overlay */
     padding: 20px;
 }
+
+.content p {
+    text-align: justify;
+}

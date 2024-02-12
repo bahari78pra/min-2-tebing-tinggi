@@ -32,7 +32,7 @@
                                     <h2 class="animate__animated animate__fadeInDown">{{ $data_slide->title }}</h2>
                                     <p class="animate__animated animate__fadeInUp">{!! $data_slide->detail !!}</p>
                                     <div>
-                                        <a href="#about"
+                                        <a href="{{ route('profil', 'visi-dan-misi') }}"
                                             class="btn-get-started animate__animated animate__fadeInUp scrollto">Visi &
                                             Misi Madrasah </a>
                                     </div>
@@ -69,9 +69,12 @@
                         <h3 style="text-transform: uppercase">Profil</h3>
                         <h2 style="text-transform: uppercase">Madrasah Ibtidaiyah Negeri 2</h2>
                         <h2 style="text-transform: uppercase">Tebing tinggi</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi asperiores, quia
-                            est molestias eligendi eaque at, dignissimos quis ipsa beatae et adipisci quibusdam. Ab
-                            aliquid id corrupti fuga praesentium!</p>
+                        <p align="justify">Madrasah Idtidaiyah Negeri 2 Tebing Tinggiyang berkualitas menawarkan
+                            pendidikan Islam yang
+                            holistik dengan fokus pada akademik, agama, dan moral. Mereka memiliki kurikulum yang
+                            seimbang antara ilmu agama dan umum, serta guru yang terlatih dan berkompeten. Lingkungan
+                            belajar yang kondusif, fasilitas modern, dan dukungan orang tua menjadi ciri khas madrasah
+                            yang baik.</p>
                         {{-- {!! str_replace(['<div>', '</div>'], '', $sambutan->profile_detail) !!}
                         <a href="{{ route('profil', $sambutan->alias) }}">Baca Selengkapnya</a> --}}
                     </div>
@@ -223,7 +226,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Kontak & Lokasi Sekolah</h2>
+                    <h2>Kontak & Lokasi Madrasah</h2>
                     <p></p>
                 </div>
 
